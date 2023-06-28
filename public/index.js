@@ -28,7 +28,6 @@ function makeMessage(message, isUser){
         li.className = 'not-user'
     }
     text.val('');
-
     list.appendChild(li);
 
 }
@@ -37,9 +36,7 @@ text.keydown(function(event) {
     if (event.key === "Enter"){
         client.send(text.val());
         makeMessage(text.val(), true);
-
     }
-    
 });
 
 
