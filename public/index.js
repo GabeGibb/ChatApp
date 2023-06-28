@@ -15,15 +15,29 @@ let list = document.getElementById('testList')
 
 let text = $('#textBox')
 
+
+function makeMessage(message, isUser){
+  var li = document.createElement("li");
+    li.appendChild(document.createTextNode(message));
+    if (isUser){
+      li.style.color = "red"
+      li.className = 'user'
+    }
+    else{
+      li.style.color = "blue"
+      li.className = 'not-user'
+    }
+    text.val('');
+
+    list.appendChild(li);
+
+}
+
 text.keydown(function(event) {
   if (event.key === "Enter"){
-    var li = document.createElement("li");
-    li.appendChild(document.createTextNode(text.val()));
-    li.style.color = "red"
-    list.appendChild(li);
-  
     client.send(text.val());
-    text.val('');
+    makeMessage(text.val(), true);
+  
   }
     
 });
@@ -31,8 +45,5 @@ text.keydown(function(event) {
 
 
 client.onmessage = (event) => {
-  var li = document.createElement("li");
-  li.appendChild(document.createTextNode(event.data));
-  li.style.color = "blue";
-  list.appendChild(li);
+  makeMessage(event.data, false)
 };

@@ -8,13 +8,15 @@ app.use(express.static('public'));
 // events that come in.
 const wsServer = new ws.Server({ noServer: true });
 let CLIENTS = [];
+
 wsServer.on('connection', socket => {
   CLIENTS.push(socket);
 
   socket.on('message', message => {
+    let m = message.toString('utf-8')
     for (let i = 0; i < CLIENTS.length; i++){
       if (CLIENTS[i] != socket){
-        CLIENTS[i].send(message.toString('utf-8'))
+        CLIENTS[i].send(m)
       }
     }
   })
