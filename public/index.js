@@ -2,10 +2,10 @@ let url = new URL(document.location.href)
 console.log(url)
 let wsProtocol
 if (url.protocol == "http:"){
-  wsProtocol = 'ws://'
+    wsProtocol = 'ws://'
 }
 else{
-  wsProtocol = 'wss://'
+    wsProtocol = 'wss://'
 }
 let wsUrl = wsProtocol + url.host
 console.log(wsUrl)
@@ -17,15 +17,15 @@ let text = $('#textBox')
 
 
 function makeMessage(message, isUser){
-  var li = document.createElement("li");
+    var li = document.createElement("li");
     li.appendChild(document.createTextNode(message));
     if (isUser){
-      li.style.color = "red"
-      li.className = 'user'
+        li.style.color = "red"
+        li.className = 'user'
     }
     else{
-      li.style.color = "blue"
-      li.className = 'not-user'
+        li.style.color = "blue"
+        li.className = 'not-user'
     }
     text.val('');
 
@@ -34,16 +34,16 @@ function makeMessage(message, isUser){
 }
 
 text.keydown(function(event) {
-  if (event.key === "Enter"){
-    client.send(text.val());
-    makeMessage(text.val(), true);
-  
-  }
+    if (event.key === "Enter"){
+        client.send(text.val());
+        makeMessage(text.val(), true);
+
+    }
     
 });
 
 
 
 client.onmessage = (event) => {
-  makeMessage(event.data, false)
+    makeMessage(event.data, false)
 };
