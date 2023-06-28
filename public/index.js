@@ -20,11 +20,11 @@ function makeMessage(message, isUser){
     var li = document.createElement("li");
     li.appendChild(document.createTextNode(message));
     if (isUser){
-        li.style.color = "red"
+        // li.style.color = "red"
         li.className = 'user'
     }
     else{
-        li.style.color = "blue"
+        // li.style.color = "blue"
         li.className = 'not-user'
     }
     text.val('');

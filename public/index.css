@@ -8,20 +8,57 @@ body {
   background: radial-gradient(circle, rgb(202, 185, 185) 0%, rgb(161, 164, 204) 100%);
   }
   
-  #content {
+  /* #content {
     max-width: 600px;
     margin: 25vh auto;
-  }
+  }  */
+ul{
+    margin: auto;
+}
   
-li {
+li{
+    justify-content: center;
+    --r: 25px; /* the radius */
+    --t: 30px; /* the size of the tail */
+
+    max-width: 300px;
+    padding: calc(2*var(--r)/3);
+    -webkit-mask: 
+        radial-gradient(var(--t) at var(--_d) 0,#0000 98%,#000 102%) 
+        var(--_d) 100%/calc(100% - var(--r)) var(--t) no-repeat,
+        conic-gradient(at var(--r) var(--r),#000 75%,#0000 0) 
+        calc(var(--r)/-2) calc(var(--r)/-2) padding-box, 
+        radial-gradient(50% 50%,#000 98%,#0000 101%) 
+        0 0/var(--r) var(--r) space padding-box;
+    background: linear-gradient(135deg,#FE6D00,#1384C5) border-box;
+    color: #fff;
+    
+}
+
+.not-user{
+    --_d: 0%;
+    border-left: var(--t) solid #0000;
+    margin-right: var(--t);
+    place-self: start;
+}
+
+.user{
+    --_d: 100%;
+    border-right: var(--t) solid #0000;
+    margin-left: var(--t);
+    place-self: end;
+}
+
+
+/* li {
     margin: 10px 10px 0;
     background: #efefef;
     padding: 20px 60px;
     position: relative;
     border: none;
     border-radius: 8px;
-    /* font-style: italic; */
-  }
+    font-style: italic;
+  } */
   
   /* .testimonial blockquote:before,
   .testimonial blockquote:after {
@@ -44,17 +81,17 @@ li {
     bottom: -0.5em;
   } */
   
-li {
+/* li {
     width: 0;
     height: 0;
     border-left: 0 solid transparent;
     border-right: 20px solid transparent;
     border-top: 20px solid #efefef;
     margin: 0 0 0 60px;
-  }
+  } */
   
-li {
+/* li {
     margin: 8px 0 0 20px;
     text-align: left;
     color: #fff;
-  }
+  } */
