@@ -14,7 +14,7 @@ wsServer.on('connection', socket => {
   socket.on('message', message => {
     for (let i = 0; i < CLIENTS.length; i++){
       if (CLIENTS[i] != socket){
-        CLIENTS.send(message.toString('utf-8'))
+        CLIENTS[i].send(message.toString('utf-8'))
       }
     }
   })
