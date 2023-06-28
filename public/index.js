@@ -43,7 +43,14 @@ text.keydown(function(event) {
 });
 
 
-
 client.onmessage = (event) => {
     makeMessage(event.data, false)
 };
+
+
+$.get(url + "\messages", function(data, status){
+    console.log(data, status)
+    for (msg of data){
+        makeMessage(msg, false)
+    }
+})

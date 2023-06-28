@@ -8,12 +8,14 @@ app.use(express.static('public'));
 // events that come in.
 const wsServer = new ws.Server({ noServer: true });
 let CLIENTS = [];
+let messages = [];
 
 wsServer.on('connection', socket => {
     CLIENTS.push(socket);
 
     socket.on('message', message => {
         let m = message.toString('utf-8')
+        messages.push(m)
         for (let i = 0; i < CLIENTS.length; i++){
             if (CLIENTS[i] != socket){
             CLIENTS[i].send(m)
@@ -27,9 +29,15 @@ wsServer.on('connection', socket => {
 });
 
 
+
 app.get('/', (req, res) => {
     res.sendFile('public\\index.html', {root: __dirname});
 })
+
+app.get('/messages', (req, res) => {
+    res.send(messages)
+})
+
 
 const server = app.listen(3000, () =>{
     console.log('http://localhost:3000/')
