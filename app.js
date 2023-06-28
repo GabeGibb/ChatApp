@@ -13,9 +13,9 @@ wsServer.on('connection', socket => {
 
   socket.on('message', message => {
     for (let i = 0; i < CLIENTS.length; i++){
-      if (CLIENTS[i] != socket){
-        CLIENTS[i].send(message.toString('utf-8'))
-      }
+      // if (CLIENTS[i] != socket){
+      CLIENTS[i].send(message.toString('utf-8'))
+      // }
     }
   })
 

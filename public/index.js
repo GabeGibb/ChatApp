@@ -15,17 +15,6 @@ let list = document.getElementById('testList')
 
 let text = $('#textBox')
 
-// $(".textBox").on("keydown", ".search", function(event){
-//   console.log('hi')
-//   if (event.key === "Enter"){
-//     var li = document.createElement("li");
-//     li.appendChild(document.createTextNode(text.value));
-//     list.appendChild(li);
-  
-//     client.send(text.value);
-//   }
-// })
-
 text.keydown(function(event) {
   if (event.key === "Enter"){
     var li = document.createElement("li");
