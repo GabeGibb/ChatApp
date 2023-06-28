@@ -7,7 +7,7 @@ app.use(express.static('public'));
 // Set up a headless websocket server that prints any
 // events that come in.
 const wsServer = new ws.Server({ noServer: true });
-CLIENTS = [];
+let CLIENTS = [];
 wsServer.on('connection', socket => {
   CLIENTS.push(socket);
 
