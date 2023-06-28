@@ -1,4 +1,8 @@
-client = new WebSocket('ws://localhost:3000');
+let url = new URL(document.location.href)
+console.log(url.host)
+let wsUrl = 'ws://' + url.host
+console.log(wsUrl)
+client = new WebSocket(wsUrl);
 
 let list = document.getElementById('testList')
 
