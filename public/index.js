@@ -54,3 +54,5 @@ $.get(url + "\messages", function(data, status){
         makeMessage(msg, false)
     }
 })
+
+// console.log(client)

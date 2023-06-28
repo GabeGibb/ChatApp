@@ -12,7 +12,6 @@ let messages = [];
 
 wsServer.on('connection', socket => {
     CLIENTS.push(socket);
-
     socket.on('message', message => {
         let m = message.toString('utf-8')
         messages.push(m)
@@ -24,7 +23,11 @@ wsServer.on('connection', socket => {
     })
 
     socket.on('close',  () => {
-        console.log('user disconnect')
+        console.log('user disconnect', CLIENTS.length)
+        const index = CLIENTS.indexOf(socket);
+        if (index > -1) {
+            CLIENTS.splice(index, 1);
+        }
     })
 });
 
@@ -43,11 +46,10 @@ const server = app.listen(3000, () =>{
     console.log('http://localhost:3000/')
 });
 
-// `server` is a vanilla Node.js HTTP server, so use
-// the same ws upgrade process described here:
-// https://www.npmjs.com/package/ws#multiple-servers-sharing-a-single-https-server
+
 server.on('upgrade', (request, socket, head) => {
     wsServer.handleUpgrade(request, socket, head, socket => {
         wsServer.emit('connection', socket, request);
     });
 });
+
