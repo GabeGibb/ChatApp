@@ -1,6 +1,13 @@
 let url = new URL(document.location.href)
-console.log(url.host)
-let wsUrl = 'ws://' + url.host
+console.log(url)
+let wsProtocol
+if (url.protocol == "http:"){
+  wsProtocol = 'ws://'
+}
+else{
+  wsProtocol = 'wss://'
+}
+let wsUrl = wsProtocol + url.host
 console.log(wsUrl)
 client = new WebSocket(wsUrl);
 
