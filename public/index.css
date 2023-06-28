@@ -4,8 +4,8 @@ body {
     font-size: 1rem;
     line-height: 1.6em;
     text-align: center;
-  background: rgb(238,174,202);
-  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background: rgb(3, 255, 221);
+  background: radial-gradient(circle, rgb(202, 185, 185) 0%, rgb(161, 164, 204) 100%);
   }
   
   #content {
@@ -20,7 +20,7 @@ body {
     position: relative;
     border: none;
     border-radius: 8px;
-    font-style: italic;
+    /* font-style: italic; */
   }
   
   /* .testimonial blockquote:before,
