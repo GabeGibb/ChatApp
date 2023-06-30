@@ -18,11 +18,11 @@ let text = $('#textBox')
 let curMsgNum = 0;
 let nums = [];
 
-console.log(localStorage.getItem("nums"))
-if (localStorage.getItem("nums") == ""){
-    localStorage.setItem("nums", "");
+console.log(sessionStorage.getItem("nums"))
+if (sessionStorage.getItem("nums") == null){
+    sessionStorage.setItem("nums", "");
 }else{
-    nums = JSON.parse(localStorage.getItem("nums"))
+    nums = JSON.parse(sessionStorage.getItem("nums"))
 }
 
 
@@ -52,7 +52,7 @@ text.keydown(function(event) {
         client.send(text.val());
         makeMessage(text.val(), true);
         nums.push(curMsgNum)
-        localStorage.setItem("nums", JSON.stringify(nums))
+        sessionStorage.setItem("nums", JSON.stringify(nums))
         curMsgNum++;
     }
 });
