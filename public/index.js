@@ -60,6 +60,7 @@ text.keydown(function(event) {
 
 client.onmessage = (event) => {
     makeMessage(event.data, false)
+    curMsgNum++;
 };
 
 
