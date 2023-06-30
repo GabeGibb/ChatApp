@@ -17,6 +17,8 @@ let text = $('#textBox')
 
 
 function makeMessage(message, isUser){
+    var div = document.createElement("div");
+    div.className = 'msg-container'
     var li = document.createElement("li");
     li.appendChild(document.createTextNode(message));
     if (isUser){
@@ -28,7 +30,10 @@ function makeMessage(message, isUser){
         li.className = 'not-user'
     }
     text.val('');
-    list.appendChild(li);
+    div.appendChild(li);
+    list.appendChild(div);
+
+    div.scrollIntoView({behavior: "smooth"});
 
 }
 
