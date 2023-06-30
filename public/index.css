@@ -9,13 +9,10 @@ body {
   }
   
 
-ul{
-    /* margin: auto; */
-    /* display: flex; */
-    /* align-items: center;
-    justify-content: center; */
+/* ul{
+
 }
-  
+   */
 li{
 
     --r: 25px; /* the radius */
@@ -33,12 +30,6 @@ li{
     background: linear-gradient(135deg,#FE6D00,#1384C5) border-box;
     color: #fff;
     
-    /* justify-content: center;
-    margin: auto; */
-    /* right: 50%; */
-    /* margin-left: 35%;
-    margin-right: 50%; */
-    /* margin-left: 33%; */
     margin: auto;
 }
 
@@ -47,6 +38,7 @@ li{
     border-left: var(--t) solid #0000;
     /* margin-right: var(--t); */
     place-self: start;
+    margin-left: 15%;
 
 }
 
@@ -54,7 +46,10 @@ li{
     --_d: 100%;
     border-right: var(--t) solid #0000;
     /* margin-left: var(--t); */
+    margin-left: 62.5%;
     place-self: end;
+
+
 }
 
 .msg-container{
@@ -62,54 +57,17 @@ li{
 }
 
 #textBox{
-    text-align: none;
+    /* margin: auto; */
+    /* margin-left: 10%; */
+    margin-left: -10%;
     position: fixed;
     z-index: 1;
-    margin: auto;
+    color: #333;
+    font-size: 1.3rem;
+    border-radius: 0.2rem;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 20%;
+    border-bottom: 0.3rem solid transparent;
 }
 
-/* li {
-    margin: 10px 10px 0;
-    background: #efefef;
-    padding: 20px 60px;
-    position: relative;
-    border: none;
-    border-radius: 8px;
-    font-style: italic;
-  } */
-  
-  /* .testimonial blockquote:before,
-  .testimonial blockquote:after {
-    content: "\201C";
-    position: absolute;
-    font-size: 80px;
-    line-height: 1;
-    color: #757f9a;
-    font-style: normal;
-  } */
-  
-  /* .testimonial blockquote:before {
-    top: 0;
-    left: 10px;
-  }
-  
-  .testimonial blockquote:after {
-    content: "\201D";
-    right: 10px;
-    bottom: -0.5em;
-  } */
-  
-/* li {
-    width: 0;
-    height: 0;
-    border-left: 0 solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 20px solid #efefef;
-    margin: 0 0 0 60px;
-  } */
-  
-/* li {
-    margin: 8px 0 0 20px;
-    text-align: left;
-    color: #fff;
-  } */
