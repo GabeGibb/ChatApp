@@ -19,7 +19,7 @@ let curMsgNum = 0;
 let nums = [];
 
 console.log(sessionStorage.getItem("nums"))
-if (sessionStorage.getItem("nums") == null){
+if (sessionStorage.getItem("nums") == null || sessionStorage.getItem("nums") == ''){
     sessionStorage.setItem("nums", "");
 }else{
     nums = JSON.parse(sessionStorage.getItem("nums"))
