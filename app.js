@@ -17,7 +17,7 @@ wsServer.on('connection', socket => {
         messages.push(m)
         for (let i = 0; i < CLIENTS.length; i++){
             if (CLIENTS[i] != socket){
-            CLIENTS[i].send(m)
+                CLIENTS[i].send(m)
             }
         }
     })

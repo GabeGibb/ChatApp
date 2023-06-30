@@ -16,6 +16,11 @@ let list = document.getElementById('testList')
 let text = $('#textBox')
 
 
+// if (localStorage.nums == null){
+//     localStorage.nums = [];
+// }
+
+
 function makeMessage(message, isUser){
     var div = document.createElement("div");
     div.className = 'msg-container'
