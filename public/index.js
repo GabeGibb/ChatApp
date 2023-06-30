@@ -15,10 +15,16 @@ let list = document.getElementById('testList')
 
 let text = $('#textBox')
 
+let curMsgNum = 0;
+let nums = [];
 
-// if (localStorage.nums == null){
-//     localStorage.nums = [];
-// }
+console.log(localStorage.getItem("nums"))
+if (localStorage.getItem("nums") == ""){
+    localStorage.setItem("nums", "");
+}else{
+    nums = JSON.parse(localStorage.getItem("nums"))
+}
+
 
 
 function makeMessage(message, isUser){
@@ -39,13 +45,15 @@ function makeMessage(message, isUser){
     list.appendChild(div);
 
     div.scrollIntoView({behavior: "smooth"});
-
 }
 
 text.keydown(function(event) {
     if (event.key === "Enter"){
         client.send(text.val());
         makeMessage(text.val(), true);
+        nums.push(curMsgNum)
+        localStorage.setItem("nums", JSON.stringify(nums))
+        curMsgNum++;
     }
 });
 
@@ -57,8 +65,13 @@ client.onmessage = (event) => {
 
 $.get(url + "\messages", function(data, status){
     console.log(data, status)
-    for (msg of data){
-        makeMessage(msg, false)
+    curMsgNum = data.length;
+    for(let i = 0; i < data.length; i++){
+        if (nums.includes(i)){
+            makeMessage(data[i], true)
+        }else{
+            makeMessage(data[i], false)
+        }
     }
 })
 
